@@ -1,11 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
+import mysql from "mysql2/promise";
+import dotenv from "dotenv";
 
 const app = express();
 const port = 3000;
 const API_URL = "http://localhost:4000";
-
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +22,7 @@ app.get("/", async (req, res) => {
     res.status(500).json({ message: "Error fetching posts" });
   }
 });
+
 
 // Route to render the edit page
 app.get("/new", (req, res) => {
@@ -41,6 +43,7 @@ app.get("/edit/:id", async (req, res) => {
   }
 });
 
+
 // Create a new post
 app.post("/api/posts", async (req, res) => {
   try {
@@ -51,6 +54,7 @@ app.post("/api/posts", async (req, res) => {
     res.status(500).json({ message: "Error creating post" });
   }
 });
+
 
 // Newly Added....
 app.get("/posts/:id", async (req, res) => {
@@ -78,6 +82,7 @@ app.post("/api/posts/:id", async (req, res) => {
   }
 });
 
+
 // Delete a post
 app.get("/api/posts/delete/:id", async (req, res) => {
   try {
@@ -87,6 +92,7 @@ app.get("/api/posts/delete/:id", async (req, res) => {
     res.status(500).json({ message: "Error deleting post" });
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Backend server is running on http://localhost:${port}`);
