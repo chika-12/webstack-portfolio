@@ -1,5 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
+import mysql from "mysql2/promise";
+import dotenv from "dotenv";
 
 const app = express();
 const port = 4000;
