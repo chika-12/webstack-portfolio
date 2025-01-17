@@ -60,7 +60,8 @@ app.post("/api/posts", async (req, res) => {
 app.get("/posts/:id", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
-    res.render("postDetails.ejs", { post: response.data });
+    console.log("consumer response", response.data)
+    res.render("postDetails.ejs", { post: response.data});
   } catch (error) {
     res.status(500).json({ message: "Error fetching post details" });
   }
