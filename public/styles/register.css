@@ -1,0 +1,101 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Background Styling */
+  body {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+  }
+  
+  /* Register Container */
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  /* Register Card */
+  .register-card {
+    background: #ffffff;
+    color: #333;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Headings */
+  .register-card h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .register-card p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Input Group */
+  .input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #36d1dc;
+    outline: none;
+  }
+  
+  /* Button */
+  .btn {
+    background: linear-gradient(90deg, #36d1dc, #5b86e5);
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #5b86e5, #36d1dc);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
