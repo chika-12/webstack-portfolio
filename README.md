@@ -19,5 +19,4 @@ This is a simple blog application that allows users to create, read, and manage 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd blog-project
+   git clone webstack-portfolio
