@@ -27,9 +27,11 @@ app.use(bodyParser.json());
 app.get("/", (req, res)=>{
   res.render("home.ejs")
 })
+//login page
 app.get("/login", (req, res)=>{
   res.render("login.ejs")
 });
+//registration
 app.get("/register", (req, res)=>{
   res.render("register.ejs")
 })
@@ -55,15 +57,15 @@ app.post("/register", async(req,res)=>{
 
 app.post("/login", async(req, res)=>{
   try{
-    const name = req.body.name
+    //const name = req.body.name
     const email = req.body.email
     const loggedInPassword = req.body.password
 
     const checkDatabaseForUser = await db.query("SELECT * FROM users WHERE email = $1", [email])
-    console.log(checkDatabaseForUser.rows)
+    //console.log(checkDatabaseForUser.rows)
     if(checkDatabaseForUser.rows.length > 0){
       const savedPassword = checkDatabaseForUser.rows[0].password
-      const checker = bcryptjs.compare(loggedInPassword, savedPassword) 
+      const checker = await bcryptjs.compare(loggedInPassword, savedPassword) 
       if(checker){
         res.redirect("/blog")
       }else{
@@ -82,7 +84,7 @@ app.post("/login", async(req, res)=>{
 app.get("/blog", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts`);
-    console.log(response);
+    //console.log(response);
     res.render("index.ejs", { posts: response.data });
   } catch (error) {
     res.status(500).json({ message: "Error fetching posts" });
@@ -122,7 +124,7 @@ app.post("/api/posts", async (req, res) => {
 });
 
 
-// Newly Added....
+// Read post.
 app.get("/posts/:id", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
